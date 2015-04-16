@@ -4,11 +4,30 @@
  * model : 全屏展示module
  * verson : 1.0
  * info ：知识在于积累，每天一小步，成功永远属于坚持的人。
+ * blog : http://www.best-html5.net
  */
+
+/*
+ *
+ * @param {type} option
+ * {
+ *   @param _windowEvent: ture/false//是否绑定window.resize事件
+ *   @param _scrollingSpeed: 毫秒//动画执行的时间
+ *   @param _scrollDely: 毫秒,//每一次滚动之间的延迟
+ *   @param _controller: ture/false,//是否开启锚点控制
+ *   @param _beforeScroll: function,//滚动前的回调，返回的参数为当前page的下标，从0开始计算
+ *   @param _endScroll: function,//，返回的参数为当前page的下标，从0开始计算
+ * }
+ * return obj
+ *   none
+ *
+ *
+ */
+
+
 (function($) {
     $.fn.fullPage = function(options) {
         var option = $.extend({
-            _height: $(window).height(),
             _windowEvent: true,
             _mouseEvent: true,
             _scrollingSpeed: 700,

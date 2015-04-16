@@ -9,10 +9,9 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/jquery.1.11.min.js"></script>
-        <script src="js/jquery.mousewheel.js"></script>
-        <script src="js/fullPageModule/fullPageModule.js"></script>
-        
+        <script src="jquery-2.0.3.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.mousewheel.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="fullPageModule.js" type="text/javascript" charset="utf-8"></script>
         <style>
             *{margin:0;padding:0;}
 
@@ -112,20 +111,23 @@ and open the template in the editor.
             <div class="fullPageLayer">
                 <div class="fullPagePager onePage active"></div>
                 <div class="fullPagePager twoPage">
-                    <img class="staticImg staticImg1" src="images/backimage1.jpg" />
+                    <img class="staticImg staticImg1" src="images/1.jpg" />
                 </div>
                 <div class="fullPagePager threePage">
-                    <img class="staticImg staticImg2" src="images/backimage1.jpg" />
+                    <img class="staticImg staticImg2" src="images/2.jpg" />
                 </div>
                 <div class="fullPagePager fourPage">
-                    <img class="staticImg staticImg3" src="images/backimage1.jpg" />
+                    <img class="staticImg staticImg3" src="images/1.jpg" />
                 </div>
             </div>
         </div>
         <script>
-            var pager = $(".fullPageGlobal").fullPage({
+            $(".fullPageGlobal").fullPage({
+            	_scrollingSpeed: 700,
+                _scrollDely: 400,
+                _controller: true,
                 _beforeScroll: function(_index) {
-
+                    console.log(_index);
                 },
                 _endScroll: function(_index) {
 
