@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery.1.11.min.js"></script>
+        <script src="js/jquery.mousewheel.js"></script>
+        <script src="js/fullPageModule/fullPageModule.js"></script>
+        
+        <style>
+            *{margin:0;padding:0;}
+
+            /*
+            *fullPage css begin
+            */
+            .fullPageGlobal, .fullPageLayer, fullPagePager{
+                width:100%;
+
+            }
+            .fullPageGlobal{
+                position:relative;
+                overflow:hidden;
+            }
+            .fullPageLayer{
+                position: absolute;
+                left:0;
+                top:0;
+            }
+            .fullPagePager{
+                position:relative;
+                overflow:hidden;
+            }
+            #fullPageController{
+                position:fixed;
+                top:40%;
+                right:10px;
+                width:60px;
+                border:1px solid gray;
+                z-index:10;
+                border-radius:6px;
+                background:white;
+            }
+            #fullPageController a{
+                width:20px;
+                height:20px;
+                border-radius:100%;
+                background-color:gray;
+                display:block;
+                margin:3px auto;
+                text-align:center;
+                cursor:pointer;
+            }
+            #fullPageController a.select{
+                border:3px solid gray;
+                background-color:black;
+
+            }
+            .fp-easing {
+                -webkit-transition: all 0.7s ease-out;
+                -moz-transition: all 0.7s ease-out;
+                -ms-transition: all 0.7s ease-out;
+                transition: all 0.7s ease-out;
+            }
+            /*
+            *fullPage css end
+            */
+
+
+            .onePage{
+                background:gray;
+
+            }
+            .twoPage{
+                background:red;
+            }
+            .threePage{
+                background:green;
+            }
+            .fourPage{
+                background:yellow;
+            }
+
+
+            .staticImg{
+                -webkit-transition: all 0.7s ease-out;
+                -moz-transition: all 0.7s ease-out;
+                -ms-transition: all 0.7s ease-out;
+                -o-transition: all 0.7s ease-out;
+                transition: all 0.7s ease-out;
+                position:absolute;
+                left:10%;
+                top:10%;
+                width:20%;
+            }
+
+            .activeImg{
+                left:50%;
+
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class='fullPageGlobal'>
+            <div class="fullPageLayer">
+                <div class="fullPagePager onePage active"></div>
+                <div class="fullPagePager twoPage">
+                    <img class="staticImg staticImg1" src="images/backimage1.jpg" />
+                </div>
+                <div class="fullPagePager threePage">
+                    <img class="staticImg staticImg2" src="images/backimage1.jpg" />
+                </div>
+                <div class="fullPagePager fourPage">
+                    <img class="staticImg staticImg3" src="images/backimage1.jpg" />
+                </div>
+            </div>
+        </div>
+        <script>
+            var pager = $(".fullPageGlobal").fullPage({
+                _beforeScroll: function(_index) {
+
+                },
+                _endScroll: function(_index) {
+
+                    $(".staticImg1").toggleClass("activeImg", _index == 1);
+                    $(".staticImg2").toggleClass("activeImg", _index == 2);
+                    $(".staticImg3").toggleClass("activeImg", _index == 3);
+                }
+            });
+            
+        </script>
+    </body>
+</html>
